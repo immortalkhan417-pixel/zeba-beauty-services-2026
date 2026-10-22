@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zeba Beauty Services — Skin, Hair, Brows &amp; Lashes</title>
+  <meta name="description" content="Zeba Beauty Services: facials, threading, waxing, hair spa, keratin, colour, balayage, permanent eyebrows and lash extensions. Request your appointment online or on WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">Zeba<span>Beauty Services</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">☰</button>
+    <nav id="nav-links">
+      <a href="#services">Services</a>
+      <a href="#quiz">Beauty Match</a>
+      <a href="#gallery">Inspiration</a>
+      <a href="#book" class="btn btn-small">Book now</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Skin · Hair · Brows · Lashes</p>
+        <h1>Unhurried beauty, <em>made for you.</em></h1>
+        <p class="lead">From a fresh clean-up to a full balayage, every visit starts with a conversation about what you want.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#book">Request an appointment</a>
+          <a class="btn btn-ghost" id="hero-whatsapp" href="https://wa.me/919930605111" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <p class="hours-line" id="hours-line"></p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1100&q=85" alt="">
+      </div>
+    </section>
+
+    <section class="offers" id="offers" aria-label="Featured offers"></section>
+
+    <section class="section" id="services">
+      <div class="section-head">
+        <p class="eyebrow">The menu</p>
+        <h2>Our services</h2>
+        <p>Prices vary by hair length, skin needs and products. Ask us for a personalised quote.</p>
+      </div>
+      <div class="filters" id="filters" role="tablist" aria-label="Filter services"></div>
+      <div class="service-grid" id="service-grid"><p class="muted">Loading services…</p></div>
+    </section>
+
+    <section class="section wishlist-band" id="wishlist" hidden>
+      <div class="section-head">
+        <p class="eyebrow">Saved on this device</p>
+        <h2>Your wishlist</h2>
+      </div>
+      <ul class="chips" id="wishlist-list"></ul>
+      <button class="btn" id="wishlist-book">Book my wishlist</button>
+    </section>
+
+    <section class="section quiz" id="quiz">
+      <div class="section-head">
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2>Beauty Match</h2>
+        <p>Three quick questions and we'll suggest a service to talk through with us.</p>
+      </div>
+      <form class="quiz-card" id="quiz-form">
+        <fieldset>
+          <legend>What would you like to focus on?</legend>
+          <label><input type="radio" name="focus" value="skin" required> Skin</label>
+          <label><input type="radio" name="focus" value="hair"> Hair</label>
+          <label><input type="radio" name="focus" value="eyes"> Brows &amp; lashes</label>
+        </fieldset>
+        <fieldset>
+          <legend>What's the goal?</legend>
+          <label><input type="radio" name="goal" value="refresh" required> A quick refresh</label>
+          <label><input type="radio" name="goal" value="treat"> Care &amp; repair</label>
+          <label><input type="radio" name="goal" value="transform"> A new look</label>
+        </fieldset>
+        <fieldset>
+          <legend>How much time do you have?</legend>
+          <label><input type="radio" name="time" value="short" required> Under an hour</label>
+          <label><input type="radio" name="time" value="long"> I can relax for a while</label>
+        </fieldset>
+        <button class="btn" type="submit">Find my match</button>
+        <div class="quiz-result" id="quiz-result" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <p class="eyebrow">Inspiration</p>
+        <h2>Looks we love</h2>
+        <p>Inspiration images only — not photos of Zeba clients. Follow <a href="https://www.instagram.com/zebarfat/" target="_blank" rel="noopener">@zebarfat</a> for our latest work.</p>
+      </div>
+      <div class="gallery" id="gallery-grid"></div>
+    </section>
+
+    <section class="section book" id="book">
+      <div class="section-head">
+        <p class="eyebrow">Appointments</p>
+        <h2>Request a booking</h2>
+        <p>Your request stays <strong>pending</strong> until we confirm it with you by phone or WhatsApp.</p>
+      </div>
+      <form class="book-card" id="booking-form" novalidate>
+        <div class="field">
+          <span class="label">Services <small>(choose up to 10)</small></span>
+          <div class="service-picks" id="service-picks"></div>
+        </div>
+        <div class="row">
+          <label class="field">Your name
+            <input name="name" autocomplete="name" required minlength="2" maxlength="100">
+          </label>
+          <label class="field">Phone / WhatsApp
+            <input name="phone" type="tel" autocomplete="tel" required placeholder="+91 …" maxlength="30">
+          </label>
+        </div>
+        <div class="row">
+          <label class="field">Date
+            <input name="date" type="date" required>
+          </label>
+          <div class="field">
+            <span class="label">Time</span>
+            <div class="slots" id="slots"><span class="muted">Choose a date to see open times.</span></div>
+          </div>
+        </div>
+        <label class="field">Notes <small>(optional)</small>
+          <textarea name="notes" rows="3" maxlength="1000" placeholder="Hair length, skin concerns, preferred shade…"></textarea>
+        </label>
+        <p class="form-msg" id="booking-msg" role="status" aria-live="polite"></p>
+        <button class="btn" type="submit">Send booking request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p class="brand">Zeba<span>Beauty Services</span></p>
+      <p id="footer-hours"></p>
+    </div>
+    <div class="footer-links">
+      <a href="https://wa.me/919930605111" target="_blank" rel="noopener">WhatsApp +91 99306 05111</a>
+      <a href="https://www.instagram.com/zebarfat/" target="_blank" rel="noopener">Instagram @zebarfat</a>
+      <a href="/admin" class="muted">Owner login</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close preview">×</button>
+    <img alt="">
+  </dialog>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
